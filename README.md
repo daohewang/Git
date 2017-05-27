@@ -15,4 +15,7 @@ git config  --global  user.email  "你的注册邮箱"            #设置初次�
 - 修改命令：`git remote set-url origin [url]`
 - 先删后加： `git remote rm origin `      `git remote add origin [url]`  
 - 直接修改config文件 ` git config -e [--global]
-`
+
+2.如何提交文件夹到github远程仓库  
+- $ git add floder_name/*.*       (上传除.开头的文件) 
+- $ git add floder_name/*
