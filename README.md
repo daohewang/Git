@@ -18,4 +18,8 @@ git config  --global  user.email  "你的注册邮箱"            #设置初次�
 
 2.如何提交文件夹到github远程仓库  
 - $ git add floder_name/`*.*`       
-- $ git add floder_name/*
+- $ git add floder_name/*  
+
+3.如何撤销一个合并   
+- $ git merge  --abort  
+
