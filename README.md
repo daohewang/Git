@@ -5,8 +5,8 @@
 - Repository:  仓库区/本地仓库  
 - Remote:  远程仓库  
 ## git命令篇
-git  config  --global user.name "你的注册名"                 #设置初次使用Git时的名字 (名字请用英文)    
-git config  --global  user.email  "你的注册邮箱"            #设置初次使用Git时的邮箱    
+git  config  --global user.name "你的注册名"                                          #设置初次使用Git时的名字 (名字请用英文)    
+git config  --global  user.email  "你的注册邮箱"                                      #设置初次使用Git时的邮箱    
 
 
 ## git技巧篇
@@ -16,6 +16,6 @@ git config  --global  user.email  "你的注册邮箱"            #设置初次�
 - 先删后加： `git remote rm origin `      `git remote add origin [url]`  
 - 直接修改config文件 ` git config -e [--global]
 
-2.如何提交文件夹到github远程仓库  
-- $ git add floder_name/`*.*`       
+2.如何提交文件夹到github远程仓库  
+- $ git add floder_name/`*.*`       
 - $ git add floder_name/*
