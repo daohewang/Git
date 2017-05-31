@@ -48,7 +48,7 @@ first-PR目录下会生成Git仓库。这个仓库与我们Github账户下的fir
 打开Github,确认work分支是否被创建，以及是否包含我们添加的代码。 
 
 5.**发送pull request**  
-[](images/3.png)  
+![](images/3.png)@  
 
 - 切换到work分支   
 - 图片中1选项可以查看分支之间的差别  
@@ -63,6 +63,7 @@ first-PR目录下会生成Git仓库。这个仓库与我们Github账户下的fir
 
 
 参考资料：   
-[创建Pull Request]()
-[如何在github上递交高质量的pull request](http://www.jianshu.com/p/47f8c85a0925)
-[github同步fork别人的项目到自己的仓库](https://segmentfault.com/a/1190000003703918)
+[创建Pull Request]()    
+[如何在github上递交高质量的pull request](http://www.jianshu.com/p/47f8c85a0925)    
+[github同步fork别人的项目到自己的仓库](https://segmentfault.com/a/1190000003703918)      
+[官方参考文档](https://help.github.com/search/?utf8=%E2%9C%93&q=pull+request)   
