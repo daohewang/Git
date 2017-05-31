@@ -23,4 +23,6 @@ git config  --global  user.email  "你的注册邮箱"                          
 3.如何撤销一个合并   
 - $ git merge  --abort  
 
+4. 查看图片的差别       
+[图片差别](https://github.com/blog/817-behold-image-view-modes)
 
