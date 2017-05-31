@@ -48,7 +48,7 @@ first-PR目录下会生成Git仓库。这个仓库与我们Github账户下的fir
 打开Github,确认work分支是否被创建，以及是否包含我们添加的代码。 
 
 5.**发送pull request**  
-![](images/3.png)@  
+![](images/3.png)
 
 - 切换到work分支   
 - 图片中1选项可以查看分支之间的差别  
