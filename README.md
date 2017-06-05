@@ -178,11 +178,11 @@ pop [stash_id]：恢复工作现场，并删除stash
   >##查看远程仓库   
 >git remote -v   
 
-**push命令**     
->1.说明：把本地库的内容推送到远程  
->2.语法：git  push [远程仓库名]  [本地仓库名 or 标签名]  
->3.选项：-u：  初次推送使用，Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的master分>支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令  
 
+**push命令**     
+1.说明：把本地库的内容推送到远程  
+2.语法：git  push [远程仓库名]  [本地仓库名 or 标签名]  
+3.选项：-u：  初次推送使用，Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的master分>支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令  
 4.示例：  
 >##初次推送master分支到远程仓库   
 >git push -u origin master     
@@ -197,38 +197,39 @@ pop [stash_id]：恢复工作现场，并删除stash
 
 
 **clone命令**  
-1.说明：从远程仓库克隆到本地仓库  
-2.语法：git  clone  远程仓库url  
-3.示例：git clone git@github.com:frainmeng/learn.git  
+1.说明：从远程仓库克隆到本地仓库    
+2.语法：git  clone  远程仓库url    
+3.示例：git clone git@github.com:frainmeng/learn.git    
 
-**tag标签**  
-1.说明：标签操作
-2.语法：git  tag [tagname  or   commit_id]
-3.选项：
--a：配合-m使用，附加说明信息
--m：配合-a使用，附加说明信息
--d：删除标签
--s：用私钥签名一个标签
+**tag标签**    
+1.说明：标签操作   
+2.语法：git  tag [tagname  or   commit_id]   
+3.选项：  
+-a：配合-m使用，附加说明信息  
+-m：配合-a使用，附加说明信息   
+-d：删除标签    
+-s：用私钥签名一个标签  
 
-4.示例：
->##创建标签
->git tag v1.0
->##在指定的（提交）位置创建标签
->git tag v0.9 67833a4
->##查看所有标签
->git tag
->##为标签附加说明西悉尼
->git tag -a v0.9 -m "说明信息"67833a4
->##删除标签
->git tag -d v0.9
+4.示例：  
+>##创建标签  
+>git tag v1.0  
+>##在指定的（提交）位置创建标签  
+>git tag v0.9 67833a4  
+>##查看所有标签  
+>git tag  
+>##为标签附加说明西悉尼  
+>git tag -a v0.9 -m "说明信息"67833a4  
+>##删除标签  
+>git tag -d v0.9  
 
+**show命令**  
+1.说明：显示标签的详细信息  
+2.示例：git  show  v1.0    #查看标签的详细信息  
 
-
-
-
-
-
-
+**Git Tag标签管理**  
+标签的创建、删除   
+git tag t1，从当前分支创建一个名为t1的标签    
+git tag -d t1，删除名为t1的标签   
 ## git技巧篇
 
 1.如何修改远程仓库地址    
@@ -245,4 +246,54 @@ pop [stash_id]：恢复工作现场，并删除stash
 
 4. 查看图片的差别       
 [图片差别](https://github.com/blog/817-behold-image-view-modes)
+
+5.GitLib权限管理  
+GitLib有五种身份权限，分别是：  
+  ● Owner 项目所有者，拥有所有的操作权限  
+  ● Master 项目的管理者，除更改、删除项目元信息外其它操作均可  
+  ● Developer 项目的开发人员，做一些开发工作，对受保护内容无权限  
+  ● Reporter 项目的报告者，只有项目的读权限，可以创建代码片断  
+  ● Guest 项目的游客，只能提交问题和评论内容    
+ 
+6.命名规则
+   ● 每次提交必须写明注释，如果是修复Bug，请加上Bug号  
+   ● 创建特性分支，名称要以f-开头，加上特性名  
+  ● 创建发布分支，名称要以r-开头，加上预发布版本号  
+  ● 创建Bug修复分支，名称要以b-开头，加上Bug号  
+  ● 创建标签，名称要以t-开头，加上发布版本号  
+  ● 合并分支时必须使用--no-ff参数，以保留合并历史轨迹  
+
+7.特性分支  
+从develop分支创建，用于特性开发，完成后要合并回develop分支。   
+操作过程：   
+git checkout -b newfeature develop，从develop分支创建newfeature特性分支   
+git checkout develop，开发完成后，需要合并回develop分支，先切换到develop分 支  
+ git merge --no-ff newfeature，合并回develop分支，必须加--no-ff参数 
+git branch -d newfeature，删除特性分支   
+git push origin develop，把合并后的develop分支推送到远程仓库     
+分支关系类似下图:     
+![](images/feature1.png)  
+8.发布分支  
+从develop分支创建，用于预发布版本，允许小bug修复，完成后要合并回develop和master。   
+操作过程： 
+git checkou -b release-1.2 develop，创建一个发布分支   
+git checkout master，切换到master分支，准备合并   
+git merge --no-ff release-1.2，把release-1.2分支合并到master分支   
+git tag 1.2，从master分支打一个标签   
+git checkou develop，切换到develop分支，准备合并   
+git merge --no-ff release-1.2，把release-1.2分支合并到develop分支   
+git branch -d release-1.2，删除这个发布分支 
+ 
+9.修复分支  
+从master分支创建，用于生产环境上的Bug修复，完成后要合并回develop和master。   
+操作过程：   
+git checkout -b hotfix-1.2.1 master，从master分支创建一个Bug修复分支   
+git checkout master，切换到master分支，准备合并   
+git merge --no-ff hotfix-1.2.1，合并到master分支   
+git tag 1.2.1，为master分支创建一个标签   
+ git checkout develop，切换到develop分支，准备合并   
+git merge --no-ff hotfix-1.2.1，合并到develop分支   
+git branch -d hotfix-1.2.1，删除hotfix-1.2.1分支   
+分支关系类似下图:   
+![](images/feature2.png)  
 
