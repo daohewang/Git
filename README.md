@@ -250,10 +250,10 @@ git tag -d t1，删除名为t1的标签
 5.删除本地分支使用：
 > $ git branch -d branch_name
 
-注意：该-d选项是一个别名--delete，只有当分支已经在其上游分支中完全合并时，它才会删除该分支。你也可以使用-D这个别名来--delete --force删除分支“不管合并状态”。[来源：man git-branch]
-删除远程分支
-从Git v1.7.0开始，可以使用远程分支删除
-> $ git push origin --delete <branch_name>
+注意：该-d选项是一个别名--delete，只有当分支已经在其上游分支中完全合并时，它才会删除该分支。你也可以使用-D这个别名来--delete --force删除分支“不管合并状态”。     
+删除远程分支   
+从Git v1.7.0开始，可以使用远程分支删除  
+> $ git push origin --delete <branch_name>  
 
 5.GitLib权限管理  
 GitLib有五种身份权限，分别是：  
